@@ -1,4 +1,4 @@
-const API_BASE_URL = const API_BASE_URL = "https://url-shortnerapp.vercel.app";
+const API_BASE_URL =   "https://url-shortnerapp.vercel.app";
 
 const getAuthHeaders = () => {
     const token = localStorage.getItem("token") || "";
