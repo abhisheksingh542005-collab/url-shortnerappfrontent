@@ -10,7 +10,7 @@ export default function Dashboard() {
         e.preventDefault();
         const { status, data } = await shortenUrlApi(originalUrl);
         if (status === 200 || status === 201) {
-            const backendBase = "http://localhost:7000";
+            const backendBase ="https://url-shortnerapp.vercel.app";
             setShortUrl(`${backendBase}/${data.shortId || data.shortUrl}`);
             setError('');
         } else {
