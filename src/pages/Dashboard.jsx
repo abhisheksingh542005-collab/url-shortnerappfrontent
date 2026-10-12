@@ -10,9 +10,10 @@ export default function Dashboard() {
         e.preventDefault();
         const { status, data } = await shortenUrlApi(originalUrl);
         if (status === 200 || status === 201) {
-            const backendBase ="https://url-shortnerapp.vercel.app";
-            setShortUrl(`${backendBase}/${data.shortId || data.shortUrl}`);
-            setError('');
+            const generatedShortUrl = data?.shortUrl ||
+                 (data?.shortId ? `https://url-shortnerapp.vercel.app/api/v1/url/${data.shortId}` : '');
+
+                setShortUrl(generatedShortUrl);
         } else {
             setError(data.error || "Failed to shorten URL");
             setShortUrl('');
