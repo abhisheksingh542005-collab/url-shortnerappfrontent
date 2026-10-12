@@ -29,7 +29,14 @@ export default function Dashboard() {
             </form>
             {shortUrl && (
                 <p style={{ marginTop: '15px' }}>
-                    Short URL: <a href={shortUrl} target="_blank" rel="noreferrer">{shortUrl}</a>
+                    Short URL: <a
+                    href={shortUrl.startsWith('http') ? shortUrl : `https://${shortUrl}`} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    >
+                    {shortUrl}
+                    </a>
+  
                 </p>
             )}
             {error && <p style={{ color: 'red' }}>{error}</p>}
